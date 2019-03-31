@@ -16,10 +16,10 @@ subnet *subnet_new(char *address, char *mask) {
 
 // TODO: Add validation during creation.
 subnet *subnet_new_cidr(char *cidr) {
-  uint32_t i1, i2, i3, i4;
+  uint32_t oct1, oct2, oct3, oct4;
   int mask_len;
 
-  sscanf(cidr, "%u.%u.%u.%u/%d", &i1, &i2, &i3, &i4, &mask_len);
+  sscanf(cidr, "%u.%u.%u.%u/%d", &oct1, &oct2, &oct3, &oct4, &mask_len);
 
   uint32_t mask = 0xFFFFFFFF;
   for (int i = 0; i < 32 - mask_len; i++) {
@@ -27,7 +27,9 @@ subnet *subnet_new_cidr(char *cidr) {
   }
 
   subnet *sn = (subnet *) malloc(sizeof(subnet));
-  sn->addr = (i1 << 24u) | (i2 << 16u) | (i3 << 8u) | i4;
+
+  // Pack each octet together into one 32-bit integer.
+  sn->addr = (oct1 << 24u) | (oct2 << 16u) | (oct3 << 8u) | oct4;
   sn->mask = mask;
 
   return sn;
@@ -45,6 +47,7 @@ int subnet_mask_length(subnet* sn)
 {
   int length = 0;
 
+  // Determine mask length in bits by shifting the mask bits left until the mask is "zero".
   uint32_t mask = sn->mask;
   while (mask != 0) {
     mask = mask << 1u;
@@ -57,6 +60,7 @@ int subnet_mask_length(subnet* sn)
 char *subnet_cidr(subnet *sn) {
   char *str = (char *) malloc(19 * sizeof(char));
 
+  // Temporarily allocate then free our address to avoid a memory leak.
   char *addr = subnet_addr(sn);
   sprintf(str, "%s/%d", addr, subnet_mask_length(sn));
   free(addr);
