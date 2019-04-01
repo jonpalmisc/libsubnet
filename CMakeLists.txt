@@ -9,3 +9,6 @@ target_include_directories(subnet PUBLIC include)
 add_executable(demo examples/demo.c include/libsubnet/network.h)
 target_include_directories(demo PUBLIC include)
 target_link_libraries(demo subnet)
+
+install(TARGETS subnet LIBRARY DESTINATION lib)
+install(FILES include/libsubnet/network.h include/libsubnet/subnet.h DESTINATION include/libsubnet)

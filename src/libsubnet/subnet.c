@@ -16,7 +16,7 @@ subnet *subnet_new(char *address, char *mask) {
     return NULL;
   }
 
-  subnet *sn = (subnet *) malloc(sizeof(subnet));
+  subnet *sn = malloc(sizeof(subnet));
 
   // Pack each octet together into one 32-bit integer.
   sn->addr = (oct1a << 24u) | (oct2a << 16u) | (oct3a << 8u) | oct4a;
@@ -41,7 +41,7 @@ subnet *subnet_new_cidr(char *cidr) {
     mask = mask << 1u;
   }
 
-  subnet *sn = (subnet *) malloc(sizeof(subnet));
+  subnet *sn = malloc(sizeof(subnet));
 
   // Pack each octet together into one 32-bit integer.
   sn->addr = (oct1 << 24u) | (oct2 << 16u) | (oct3 << 8u) | oct4;

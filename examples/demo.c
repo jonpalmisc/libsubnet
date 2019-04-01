@@ -5,7 +5,7 @@
 #include <libsubnet/subnet.h>
 
 int main(int argc, char *argv[]) {
-  subnet *snc = subnet_new_cidr("10.0.4.0/22");
+  subnet *snc = subnet_new_cidr("192.168.0.0/16");
 
   if (snc == NULL) {
     printf("%s\n", "Error: Invalid input. Please make sure you have provided a valid IP and subnet mask.");
