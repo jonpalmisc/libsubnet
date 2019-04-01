@@ -34,6 +34,9 @@ The code above would create a subnet with the same base address and mask as the 
 ## Contributing
 Contributions are always welcome, so feel free to create a pull request for yours! This project follows the [LLVM Coding Standards](https://llvm.org/docs/CodingStandards.html), so please make sure your code is formatted accordingly before submitting a pull request.
 
+## Documentation
+Documentation can be built with [Doxygen](http://www.doxygen.nl/) and then found in the `docs` folder.
+
 ## Support
 Feel free to send me an email if you need any help using libsubnet or if you have any questions!
 
