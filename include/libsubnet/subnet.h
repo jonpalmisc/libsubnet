@@ -1,7 +1,4 @@
-/**
- * @file
- * @details Subnet type and functions.
- */
+/** @file */
 
 #ifndef LIBSUBNET_SUBNET_H
 #define LIBSUBNET_SUBNET_H
@@ -48,11 +45,11 @@ char *subnet_cidr(subnet *sn);
 
 /** @brief Returns the number of hosts (addresses) contained within the subnet.
  * @return The number of hosts contained within the subnet */
-unsigned int subnet_num_hosts(subnet *sn);
+int subnet_num_hosts(subnet *sn);
 
 /** @brief Returns the number of usable hosts (addresses) contained within the subnet.
  * @return The number of usable hosts contained within the subnet */
-unsigned int subnet_num_usable_hosts(subnet *sn);
+int subnet_num_usable_hosts(subnet *sn);
 
 /** @brief Returns the lowest-numbered host within the bounds of the subnet.
  * @return The lowest-numbered host within the bounds of the subnet */

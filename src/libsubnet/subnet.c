@@ -68,11 +68,11 @@ char *subnet_cidr(subnet *sn) {
   return str;
 }
 
-unsigned int subnet_num_hosts(subnet *sn) {
+int subnet_num_hosts(subnet *sn) {
   return (unsigned int) (0xFFFFFFFFU ^ sn->mask) + 1;
 }
 
-unsigned int subnet_num_usable_hosts(subnet *sn) {
+int subnet_num_usable_hosts(subnet *sn) {
   return (unsigned int) (0xFFFFFFFFU ^ sn->mask) - 1;
 }
 

@@ -7,7 +7,6 @@
 int main(int argc, char *argv[]) {
   subnet *snc = subnet_new_cidr("10.0.4.0/22");
 
-  char *addr = subnet_addr(snc);
   char *mask = subnet_mask(snc);
   char *cidr = subnet_cidr(snc);
   char *min_host = subnet_min_host(snc);
@@ -19,15 +18,12 @@ int main(int argc, char *argv[]) {
   printf("Range: %s to %s  (%d)\n", min_host, max_host, subnet_num_usable_hosts(snc));
   printf("Network: %s  Broadcast: %s\n", network_addr, broadcast_addr);
 
-  free(addr);
   free(mask);
   free(cidr);
   free(min_host);
   free(max_host);
   free(network_addr);
   free(broadcast_addr);
-
-
 
   free(snc);
 
