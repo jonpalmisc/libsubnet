@@ -5,21 +5,36 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// TODO: Add validation during creation.
 subnet *subnet_new(char *address, char *mask) {
+  uint32_t oct1a, oct2a, oct3a, oct4a, oct1m, oct2m, oct3m, oct4m;
+
+  sscanf(address, "%u.%u.%u.%u", &oct1a, &oct2a, &oct3a, &oct4a);
+  sscanf(address, "%u.%u.%u.%u", &oct1m, &oct2m, &oct3m, &oct4m);
+
+  // Return a null pointer if the provided input was invalid.
+  if (oct1a > 255 || oct2a > 255 || oct3a > 255 || oct4a > 255 || oct1m > 255 || oct2m > 255 || oct3m > 255 || oct4m > 255) {
+    return NULL;
+  }
+
   subnet *sn = (subnet *) malloc(sizeof(subnet));
-  sn->addr = dot2bin(address);
-  sn->mask = dot2bin(mask);
+
+  // Pack each octet together into one 32-bit integer.
+  sn->addr = (oct1a << 24u) | (oct2a << 16u) | (oct3a << 8u) | oct4a;
+  sn->mask = (oct1m << 24u) | (oct2m << 16u) | (oct3m << 8u) | oct4m;
 
   return sn;
 }
 
-// TODO: Add validation during creation.
 subnet *subnet_new_cidr(char *cidr) {
   uint32_t oct1, oct2, oct3, oct4;
   int mask_len;
 
   sscanf(cidr, "%u.%u.%u.%u/%d", &oct1, &oct2, &oct3, &oct4, &mask_len);
+
+  // Return a null pointer if the provided input was invalid.
+  if (oct1 > 255 || oct2 > 255 || oct3 > 255 || oct4 > 255 || mask_len > 31) {
+    return NULL;
+  }
 
   uint32_t mask = 0xFFFFFFFF;
   for (int i = 0; i < 32 - mask_len; i++) {

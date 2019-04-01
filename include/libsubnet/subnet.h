@@ -1,4 +1,8 @@
-/** @file */
+/**
+ * @file
+ * @brief Subnet type and functions
+ * @details This file contains the definition of the subnet type and its methods.
+ */
 
 #ifndef LIBSUBNET_SUBNET_H
 #define LIBSUBNET_SUBNET_H
@@ -16,13 +20,14 @@ typedef struct {
   uint32_t mask;
 } subnet;
 
-/** @brief Constructs a new subnet object from a network address and a subnet mask.
+/** @brief Constructs a new subnet object from a network address and a subnet mask. <b>Returns NULL if invalid input is
+ * received!</b>
  * @param address The network address for the subnet
  * @param mask The mask for the subnet
  * @return A new subnet object with the given parameters */
 subnet *subnet_new(char *address, char *mask);
 
-/** @brief Constructs a new subnet object from a CIDR notation.
+/** @brief Constructs a new subnet object from a CIDR notation. <b>Returns NULL if invalid input is received!</b>
  * @param cidr The CIDR notation of the desired subnet
  * @return A new subnet object that can be represented by the given CIDR notation */
 subnet *subnet_new_cidr(char *cidr);

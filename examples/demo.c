@@ -7,6 +7,11 @@
 int main(int argc, char *argv[]) {
   subnet *snc = subnet_new_cidr("10.0.4.0/22");
 
+  if (snc == NULL) {
+    printf("%s\n", "Error: Invalid input. Please make sure you have provided a valid IP and subnet mask.");
+    return EXIT_FAILURE;
+  }
+
   char *mask = subnet_mask(snc);
   char *cidr = subnet_cidr(snc);
   char *min_host = subnet_min_host(snc);
