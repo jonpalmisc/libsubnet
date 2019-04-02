@@ -17,6 +17,8 @@ Then generate a Makefile using CMake, then build and install the library:
 
 ```cmake . && make install```
 
+_Alternatively could copy the source and header files from libsubnet into your project's directory but this is not recommended._
+
 ## Usage
 
 First and foremost, include libsubnet in your code:
