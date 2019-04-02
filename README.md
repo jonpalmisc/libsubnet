@@ -28,7 +28,7 @@ First and foremost, include libsubnet in your code:
 ```
 
 Now a new subnet object can be created with the following code:
-/
+
 ```c
 subnet *sn = subnet_new("192.168.2.64". "255.255.255.224");
 ````

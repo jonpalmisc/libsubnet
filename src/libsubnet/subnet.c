@@ -9,7 +9,7 @@ subnet *subnet_new(char *address, char *mask) {
   uint32_t oct1a, oct2a, oct3a, oct4a, oct1m, oct2m, oct3m, oct4m;
 
   sscanf(address, "%u.%u.%u.%u", &oct1a, &oct2a, &oct3a, &oct4a);
-  sscanf(address, "%u.%u.%u.%u", &oct1m, &oct2m, &oct3m, &oct4m);
+  sscanf(mask, "%u.%u.%u.%u", &oct1m, &oct2m, &oct3m, &oct4m);
 
   // Return a null pointer if the provided input was invalid.
   if (oct1a > 255 || oct2a > 255 || oct3a > 255 || oct4a > 255 || oct1m > 255 || oct2m > 255 || oct3m > 255 || oct4m > 255) {
