@@ -3,7 +3,7 @@
   <br/>
 </div>
 
-libsubnet is a small C library for representing and working with network subnets.  Currently, libsubnet is a small library with a limited amount of features, but if you have a feature you would like to see in the library, feel free to suggest it or submit a pull request.
+libsubnet is a small, cross-platform C library for representing and working with network subnets.  Currently, libsubnet is a small library with a limited amount of features, but if you have a feature you would like to see in the library, feel free to suggest it or submit a pull request.
 
 ## Installation
 
