@@ -1,8 +1,26 @@
 # libsubnet
-libsubnet is a small C library for representing and working with network subnets.
+libsubnet is a small C library for representing and working with network subnets.  Currently, libsubnet is a small library with a limited amount of features, but if you have a feature you would like to see in the library, feel free to suggest it or submit a pull request.
 
-## Example
-A new subnet object can be created with the following code:
+## Installation
+
+You need [CMake](https://cmake.org/) and [GNU Make](https://www.gnu.org/software/make/) installed on your system to build and install libsubnet. Both of these should be available in your package manager.
+
+To build and install, first clone the repository and enter the project directory:
+
+```git clone https://github.com/jonpalmisc/libsubnet.git && cd libsubnet```
+
+Then generate a Makefile using CMake, then build and install the library:
+
+```cmake . && make install```
+
+## Usage
+First and foremost, include libsubnet in your code:
+
+```c
+#include <libsubnet/subnet.h>
+```
+
+Now a new subnet object can be created with the following code:
 
 ```c
 subnet *sn = subnet_new("192.168.0.0". "255.255.0.0");
@@ -30,6 +48,10 @@ sn->mask = 0xFFFF0000;
 ```
 
 The code above would create a subnet with the same base address and mask as the other examples above.
+
+Last but not least, instruct your compiler to link against libsubnet by passing `-lsubnet` as an argument when compiling.
+
+_You may need to tell your compiler where to find the libsubnet headers and binaries.  See your compiler's manual for details on how to do this._
 
 ## Contributing
 Contributions are always welcome, so feel free to create a pull request for yours! This project follows the [LLVM Coding Standards](https://llvm.org/docs/CodingStandards.html), so please make sure your code is formatted accordingly before submitting a pull request.
