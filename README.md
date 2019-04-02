@@ -14,7 +14,13 @@ Then generate a Makefile using CMake, then build and install the library:
 ```cmake . && make install```
 
 ## Usage
-A new subnet object can be created with the following code:
+First and foremost, include libsubnet in your code:
+
+```c
+#include <libsubnet/subnet.h>
+```
+
+Now a new subnet object can be created with the following code:
 
 ```c
 subnet *sn = subnet_new("192.168.0.0". "255.255.0.0");
@@ -42,6 +48,10 @@ sn->mask = 0xFFFF0000;
 ```
 
 The code above would create a subnet with the same base address and mask as the other examples above.
+
+Last but not least, instruct your compiler to link against libsubnet by passing `-lsubnet` as an argument when compiling.
+
+_You may need to tell your compiler where to find the libsubnet headers and binaries.  See your compiler's manual for details on how to do this._
 
 ## Contributing
 Contributions are always welcome, so feel free to create a pull request for yours! This project follows the [LLVM Coding Standards](https://llvm.org/docs/CodingStandards.html), so please make sure your code is formatted accordingly before submitting a pull request.
