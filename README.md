@@ -5,6 +5,8 @@
 
 libsubnet is a small, cross-platform C library for representing and working with network subnets.  Currently, libsubnet is a small library with a limited amount of features, but if you have a feature you would like to see in the library, feel free to suggest it or submit a pull request.
 
+*NOTICE: This library is actively maintained but I will gladly accept PRs or help with any issues you may encounter!*
+
 ## Installation
 
 You need [CMake](https://cmake.org/) and [GNU Make](https://www.gnu.org/software/make/) installed on your system to build and install libsubnet. Both of these should be available in your package manager.
