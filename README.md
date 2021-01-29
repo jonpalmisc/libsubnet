@@ -5,7 +5,7 @@
 
 libsubnet is a small, cross-platform C library for representing and working with network subnets.  Currently, libsubnet is a small library with a limited amount of features, but if you have a feature you would like to see in the library, feel free to suggest it or submit a pull request.
 
-*NOTICE: This library is actively maintained but I will gladly accept PRs or help with any issues you may encounter!*
+*NOTICE: This library is not actively maintained but I will gladly accept PRs or help with any issues you may encounter!*
 
 ## Installation
 
